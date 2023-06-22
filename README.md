@@ -1,6 +1,6 @@
-# GRE HELPER
-
 ![PROJECT COVER](./PROJECT_COVER.png)
+
+# GRE HELPER
 
 G.R.E ( Graduate Record Examination ) Helper is a flask web application connected with sqlite database and powered by react frontend that:
 1) Evaluates your performance based off of G.R.E mock test and gives you a performance report which specifies topics you should focus on to improve your score. 
