@@ -8,18 +8,27 @@
 </head>
 <body>
     testpage<br/>
-    {% if question_id < 20 %}
-        <img src="/filestore/verbal_{{question_set[question_id]}}.png" alt="Image"><br />
-    {% else %}
-        <img src="/filestore/math_{{question_set[question_id]}}.png" alt="Image"><br />
-    {% endif %}
-    <button onclick="redirectToTest('{{test_id}}', '{{question_id|int - 1}}')">prev</button>
-    <button onclick="redirectToTest('{{test_id}}', '{{question_id|int + 1}}')">save & next</button>
-    <button onclick="redirectToTest('{{test_id}}', '{{question_id|int + 1}}')">next</button>
 
-    <script>    
-        function redirectToTest(test_id, question_id) {
-            window.location.href = "/test/" + test_id + "/question/" + question_id;
+    {% block passage %}{% endblock %}
+
+    <img src="/api/filestore/{{ ques_img_src }}" alt="Image"><br />
+
+    {% block options %}{% endblock %}
+
+    {% if question_no|int<39 %}
+    <button onclick="redirectToTest('{{test_id}}', '{{attempt_id}}', '{{question_no|int - 1}}')">prev</button>
+    <button onclick="saveAndNext('{{test_id}}', '{{attempt_id}}', '{{question_no|int}}')">save & next</button>
+    <button onclick="redirectToTest('{{test_id}}', '{{attempt_id}}', '{{question_no|int + 1}}')">next</button>
+    <button onclick="SaveAndSubmitAttempt('{{test_id}}', '{{attempt_id}}', '{{question_no|int}}')">submit & end test</button>
+    {% else %} 
+    <button onclick="redirectToTest('{{test_id}}', '{{attempt_id}}', '{{question_no|int - 1}}')">prev</button>
+    <button onclick="SaveAndSubmitAttempt('{{test_id}}', '{{attempt_id}}', '{{question_no|int}}')">submit & end test</button>
+    {% endif %}
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function redirectToTest(test_id, attempt_id, question_no) {
+            window.location.href = "/test/"+test_id+"/attempt/"+attempt_id+"/question/"+question_no;
         }
     </script>
 </body>

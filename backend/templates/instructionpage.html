@@ -8,11 +8,11 @@
 </head>
 <body>
     instruction page <br/>
-    <button onclick="redirectToTest('{{test_id}}')">Accept & Continue</button>
+    <button onclick="redirectToTest('{{test_id}}', '{{attempt_id}}')">Accept & Continue</button>
 
     <script>    
-        function redirectToTest(test_id) {
-            window.location.href = "/test/" + test_id;
+        function redirectToTest(test_id, attempt_id) {
+            window.location.href = "/test/"+test_id+"/attempt/"+attempt_id+"/question/"+"0";
         }
     </script>
 </body>

@@ -9,8 +9,48 @@
 <body>
     Home page
     
-    <form action="/instruction">
-        <button name="startTestBtn" type="submit">start test</button>
+    <form id="startTestForm">
+        <button id="startTestBtn" type="button">Start Test</button>
     </form>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Handle button click event
+            $("#startTestBtn").click(function() {
+                // Make API call to create test
+                $.ajax({
+                    type: "POST",
+                    url: "/api/create_test",
+                    success: function(response) {
+                        // Get test_id from the response
+                        var test_id = response.test_id;
+                        
+                        // Make API call to create attempt
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/create_attempt",
+                            data: { test_id: test_id },
+                            success: function(response) {
+                                // Get attempt_id from the response
+                                var attempt_id = response.attempt_id;
+                                
+                                // Redirect to instruction page with test_id and attempt_id as query parameters
+                                window.location.href = "/instruction?test_id=" + test_id + "&attempt_id=" + attempt_id;
+                            },
+                            error: function(error) {
+                                console.log("Error occurred during create_attempt API call!");
+                                console.log(error);
+                            }
+                        });
+                    },
+                    error: function(error) {
+                        console.log("Error occurred during create_test API call!");
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
