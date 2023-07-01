@@ -1,2 +1,3 @@
 backend/__pycache__
 backend/app.log
+frontend/node_modules
