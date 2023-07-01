@@ -1,0 +1,97 @@
+{% extends 'testpage.html' %} 
+
+{% block passage %}{% endblock %}
+
+{% block options %}
+<p>i) </p><input name="NEB" style="width: 50px;"><br/><br/>
+<p>ii) </p><input name="NEB" style="width: 50px;"><br/><br/>
+<p>iii) </p><input name="NEB" style="width: 50px;"><br/><br/>
+
+<script>
+    function saveAndNext(test_id, attempt_id, question_no) {
+        // Get the selected option value
+        var selected_ans = [];
+        $("input[name=quantity]").each(function() {
+            selected_ans.push($(this).val());
+        });
+
+        // Make the AJAX request to update the attempt
+        $.ajax({
+            type: "POST",
+            url: "/api/update_attempt",
+            data: JSON.stringify({
+                test_id: test_id,
+                attempt_id: attempt_id,
+                question_no: question_no,
+                selected_ans: selected_ans
+            }),
+            contentType: "application/json",
+            dataType: "json",
+            success: function(response) {
+                // Handle the successful response
+                console.log("Attempt updated successfully!");
+                // Redirect to the next question
+                redirectToTest(test_id, attempt_id, question_no + 1);
+            },
+            error: function(error) {
+                // Handle any errors that occur during the request
+                console.log("Error occurred during attempt update!");
+                console.log(error);
+            }
+        });
+    }
+
+    function SaveAndSubmitAttempt(test_id, attempt_id, question_no) {
+        // Get the selected option value
+        var selected_ans = [];
+        $("input[name=quantity]").each(function() {
+            selected_ans.push($(this).val());
+        });
+
+        // Make the AJAX request to update the attempt
+        $.ajax({
+            type: "POST",
+            url: "/api/update_attempt",
+            data: JSON.stringify({
+                test_id: test_id,
+                attempt_id: attempt_id,
+                question_no: question_no,
+                selected_ans: selected_ans
+            }),
+            contentType: "application/json",
+            dataType: "json",
+            success: function(response) {
+
+                // On successfully updating current question selected ans, end attempt
+                $.ajax({
+                    type: "POST",
+                    url: "/api/submit_attempt",
+                    data: JSON.stringify({
+                        attempt_id: attempt_id
+                    }),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(response) {
+                        // Handle the successful response
+                        console.log("Attempt ended successfully!");
+
+                        // Redirect to the Performace Report page of attempt id
+                        window.location.href = "/performancereport/"+attempt_id;
+                    },
+                    error: function(error) {
+                        // Handle any errors that occur during the request
+                        console.log("Error occurred during attempt ending!");
+                        console.log(error);
+                    }
+                });
+
+            },
+            error: function(error) {
+                // Handle any errors that occur during the request
+                console.log("Error occurred during attempt update!");
+                console.log(error);
+            }
+        });
+    }
+</script>
+{% endblock %}
