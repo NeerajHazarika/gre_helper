@@ -4,27 +4,45 @@ conn = sqlite3.connect('../database.db') # Establish a Connection: Use the conne
 
 cursor = conn.cursor() # Create a Cursor: A cursor object allows you to execute SQL statements and interact with the database. Create a cursor using the cursor() method on the connection object.
 
-# Create Tables: Write SQL statements to create the necessary tables in your SQLite database. 
-create_table_query = """
-CREATE TABLE IF NOT EXISTS questions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    img TEXT,
-    topic TEXT,
-    type TEXT,
-    correct_ans TEXT,
-    section TEXT
+## CREATE TABLE questions if it doesnt exist
+# create_questions_table_query = """
+# CREATE TABLE IF NOT EXISTS questions (
+#     question_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     img_src TEXT,
+#     topic TEXT,
+#     type TEXT,
+#     passage_chart_img_src TEXT,
+#     correct_ans TEXT,
+#     section TEXT
+# );
+# """ 
+
+# cursor.execute(create_questions_table_query) # Use the execute() method of the cursor object to execute the SQL statements.
+
+# ## CREATE TABLE test if it doesnt exist
+# create_test_table_query = """
+# CREATE TABLE IF NOT EXISTS tests (
+#     test_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     question_set_list TEXT
+# );
+# """ 
+
+# cursor.execute(create_test_table_query) # Use the execute() method of the cursor object to execute the SQL statements.
+
+## CREATE TABLE attempt if it doesnt exist
+create_attempt_table_query = """
+CREATE TABLE IF NOT EXISTS attempts (
+    attempt_id INTEGER PRIMARY KEY,
+    validity INTEGER,
+    test_id INTEGER,
+    time_created TEXT,
+    submission TEXT,
+    tips TEXT,
+    recommended_test_id INTEGER
 );
 """ 
 
-cursor.execute(create_table_query) # Use the execute() method of the cursor object to execute the SQL statements.
-
-# Insert Data: Use the execute() method to insert data into the tables. Write SQL statements with placeholders (?) for the values that will be inserted. Pass the values as a tuple or a list as the second argument of the execute() method.
-insert_query = """
-INSERT INTO questions (img, topic, type, correct_ans, section)
-VALUES (?, ?, ?, ?, ?);
-""" 
-values = ('verbal_3.png', 'vocabulary, context', 'fitb', 'iteration, current', 'verbal')
-cursor.execute(insert_query, values)
+cursor.execute(create_attempt_table_query)
 
 # Commit and Close: After executing the necessary SQL statements, commit the changes to the database using the commit() method on the connection object. Then, close the connection to release the database resources.
 conn.commit()

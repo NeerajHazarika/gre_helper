@@ -6,13 +6,16 @@ conn = sqlite3.connect('../database.db')
 # Create a cursor
 cursor = conn.cursor()
 
-# Execute a query to retrieve data from a table
-cursor.execute('SELECT * FROM questions')
+# Execute the query to fetch the table names
+query = "SELECT name FROM sqlite_master WHERE type='table';"
+cursor.execute(query)
 
-# Fetch and display the results
-rows = cursor.fetchall()
-for row in rows:
-    print(row)
+# Fetch all the table names
+tables = cursor.fetchall()
+
+# Print the table names
+for table in tables:
+    print(table[0])
 
 # Close the cursor and connection
 cursor.close()
