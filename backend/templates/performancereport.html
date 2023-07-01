@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Page</title>
+</head>
+<body>
+    <h1>Performance Report</h1>
+    <p>Your GRE score is: <span id="scorePlaceholder"></span>/340</p>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var attemptId = "{{attempt_id}}"; // Replace with the actual attempt ID
+        
+        $.ajax({
+            type: "GET",
+            url: "/api/get_score/" + attemptId,
+            success: function(response) {
+                // Handle the successful response
+                if (response.success) {
+                    var score = response.score;
+                    $("#scorePlaceholder").text(score);
+                } else {
+                    console.log("Error occurred while retrieving the score.");
+                }
+            },
+            error: function(error) {
+                // Handle any errors that occur during the request
+                console.log("Error occurred during the API request.");
+                console.log(error);
+            }
+        });
+    });
+</script>
+</body>
+</html>
