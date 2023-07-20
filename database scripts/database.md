@@ -22,12 +22,12 @@ tests (
 # TABLE: attempt
 ```
 attempts (
-    attempt_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    attempt_id INTEGER PRIMARY KEY,
     validity INTEGER,
-    test_id INTEGER ALTERNATE KEY,
-    submission TEXT,
+    test_id INTEGER,
     time_created TEXT,
+    submission TEXT,
     tips TEXT,
-    recommended_test_id ALTERNATE KEY,
+    recommended_test_id INTEGER
 )
 ```

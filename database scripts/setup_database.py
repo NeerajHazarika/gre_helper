@@ -1,49 +1,77 @@
-import sqlite3 # Import the SQLite3 Module: In your database_setup.py script, import the sqlite3 module to enable interaction with the SQLite database.
+import os
+import pymysql
+from google.cloud.sql.connector import Connector, IPTypes
+from dotenv import load_dotenv
 
-conn = sqlite3.connect('../database.db') # Establish a Connection: Use the connect() function from the sqlite3 module to establish a connection to the SQLite database. Provide the desired database name as an argument, and SQLite will create a new database file if it doesn't already exist.
+load_dotenv()
 
-cursor = conn.cursor() # Create a Cursor: A cursor object allows you to execute SQL statements and interact with the database. Create a cursor using the cursor() method on the connection object.
+def get_db_connection():
+    connector = Connector(IPTypes.PUBLIC)  # Use IPTypes.PRIVATE if using a private IP
 
-## CREATE TABLE questions if it doesnt exist
-# create_questions_table_query = """
-# CREATE TABLE IF NOT EXISTS questions (
-#     question_id INTEGER PRIMARY KEY AUTOINCREMENT,
-#     img_src TEXT,
-#     topic TEXT,
-#     type TEXT,
-#     passage_chart_img_src TEXT,
-#     correct_ans TEXT,
-#     section TEXT
-# );
-# """ 
+    instance_connection_name = os.environ.get("INSTANCE_CONNECTION_NAME")  # e.g. 'project:region:instance'
+    db_user = os.environ.get("DB_USER")  # e.g. 'my-db-user'
+    db_pass = os.environ.get("DB_PASSWORD")  # e.g. 'my-db-password'
+    db_name = os.environ.get("DB_NAME")  # e.g. 'my-database'
+    
+    if not instance_connection_name:
+        raise ValueError("The environment variable 'INSTANCE_CONNECTION_NAME' is not set.")
 
-# cursor.execute(create_questions_table_query) # Use the execute() method of the cursor object to execute the SQL statements.
+    conn = connector.connect(
+        instance_connection_name,
+        "pymysql",
+        user=db_user,
+        password=db_pass,
+        db=db_name,
+    )
+    
+    return conn
 
-# ## CREATE TABLE test if it doesnt exist
-# create_test_table_query = """
-# CREATE TABLE IF NOT EXISTS tests (
-#     test_id INTEGER PRIMARY KEY AUTOINCREMENT,
-#     question_set_list TEXT
-# );
-# """ 
+# Get the Cloud SQL connection
+conn = get_db_connection()
 
-# cursor.execute(create_test_table_query) # Use the execute() method of the cursor object to execute the SQL statements.
+# Create a cursor to execute queries
+with conn.cursor() as cursor:
+    # CREATE TABLE questions if it doesnt exist
+    create_questions_table_query = """
+    CREATE TABLE IF NOT EXISTS questions (
+        question_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+        img_src TEXT,
+        topic TEXT,
+        type TEXT,
+        passage_chart_img_src TEXT,
+        correct_ans TEXT,
+        section TEXT
+    );
+    """ 
 
-## CREATE TABLE attempt if it doesnt exist
-create_attempt_table_query = """
-CREATE TABLE IF NOT EXISTS attempts (
-    attempt_id INTEGER PRIMARY KEY,
-    validity INTEGER,
-    test_id INTEGER,
-    time_created TEXT,
-    submission TEXT,
-    tips TEXT,
-    recommended_test_id INTEGER
-);
-""" 
+    cursor.execute(create_questions_table_query) # Use the execute() method of the cursor object to execute the SQL statements.
 
-cursor.execute(create_attempt_table_query)
+    # CREATE TABLE test if it doesnt exist
+    create_test_table_query = """
+    CREATE TABLE IF NOT EXISTS tests (
+        test_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+        question_set_list TEXT
+    );
+    """ 
 
-# Commit and Close: After executing the necessary SQL statements, commit the changes to the database using the commit() method on the connection object. Then, close the connection to release the database resources.
-conn.commit()
+    cursor.execute(create_test_table_query) # Use the execute() method of the cursor object to execute the SQL statements.
+
+    # CREATE TABLE attempt if it doesnt exist
+    create_attempt_table_query = """
+    CREATE TABLE IF NOT EXISTS attempts (
+        attempt_id INTEGER PRIMARY KEY,
+        validity INTEGER,
+        test_id INTEGER,
+        time_created TEXT,
+        submission TEXT,
+        tips TEXT,
+        recommended_test_id INTEGER
+    );
+    """ 
+
+    cursor.execute(create_attempt_table_query)
+
+    # Commit and Close: After executing the necessary SQL statements, commit the changes to the database using the commit() method on the connection object. Then, close the connection to release the database resources.
+    conn.commit()
+
 conn.close()

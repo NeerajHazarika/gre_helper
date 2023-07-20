@@ -1,19 +1,42 @@
-import sqlite3
+import os
+import pymysql
+from google.cloud.sql.connector import Connector, IPTypes
+from dotenv import load_dotenv
 
-# Connect to the database
-conn = sqlite3.connect('../database.db')
+load_dotenv()
 
-# Create a cursor
-cursor = conn.cursor()
+def get_db_connection():
+    connector = Connector(IPTypes.PUBLIC)  # Use IPTypes.PRIVATE if using a private IP
 
-# Execute a query to retrieve data from a table
-cursor.execute('SELECT * FROM attempt')
+    instance_connection_name = os.environ.get("INSTANCE_CONNECTION_NAME")  # e.g. 'project:region:instance'
+    db_user = os.environ.get("DB_USER")  # e.g. 'my-db-user'
+    db_pass = os.environ.get("DB_PASSWORD")  # e.g. 'my-db-password'
+    db_name = os.environ.get("DB_NAME")  # e.g. 'my-database'
+    
+    if not instance_connection_name:
+        raise ValueError("The environment variable 'INSTANCE_CONNECTION_NAME' is not set.")
 
-# Fetch and display the results
-rows = cursor.fetchall()
-for row in rows:
-    print(row)
+    conn = connector.connect(
+        instance_connection_name,
+        "pymysql",
+        user=db_user,
+        password=db_pass,
+        db=db_name,
+    )
+    
+    return conn
 
-# Close the cursor and connection
-cursor.close()
+# Get the Cloud SQL connection
+conn = get_db_connection()
+
+# Create a cursor to execute queries
+with conn.cursor() as cursor:
+    # Execute a query to retrieve data from a table
+    cursor.execute('SELECT * FROM attempts')
+
+    # Fetch and display the results
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+
 conn.close()
