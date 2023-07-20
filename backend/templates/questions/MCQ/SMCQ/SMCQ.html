@@ -32,7 +32,7 @@
                 // Handle the successful response
                 console.log("Attempt updated successfully!");
                 // Redirect to the next question
-                redirectToTest(test_id, attempt_id, question_no + 1);
+                redirectToTest(test_id, attempt_id, parseInt(question_no) + 1);
             },
             error: function(error) {
                 // Handle any errors that occur during the request

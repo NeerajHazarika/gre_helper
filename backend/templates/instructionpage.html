@@ -24,7 +24,7 @@
                     question_type_html = response.type_to_templates;
                 }).fail(function() {
                     // Failure callback for the second AJAX request
-                    console.log("Error occurred during the second AJAX request");
+                    console.log("Error occurred during the /api/get_question_type_page/ AJAX request");
                 }),
                 $.ajax({
                     type: "GET",
@@ -33,15 +33,12 @@
                 }).done(function(response) {
                     ques_img_src = response.ques_img_src;
                     passage_chart_img_src = response.passage_chart_img_src;
-                }).fail(function() {
-                    // Failure callback for the second AJAX request
-                    console.log("Error occurred during the second AJAX request");
                 })
             ).then(function() {
                 question_type_html = encodeURIComponent(question_type_html)
                 window.location.href = "/test/" + test_id + "/attempt/" + attempt_id + "/question/0" + "?ques_img_src=" + ques_img_src + "&passage_chart_img_src=" + passage_chart_img_src + "&question_type_html=" + question_type_html; // REACT: question_type_html will not be needed instead we will do dynamic component rendering based on question_type only, so new api needs to be created which returns question_type based on question_no
             }).fail(function() {
-                console.log("Error occurred during AJAX requests");
+                console.log("Error occurred during redirecting AJAX requests");
             });
         }
     </script>
