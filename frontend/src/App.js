@@ -1,11 +1,15 @@
-import './App.css';
+import React from "react";
+import InstructionPage from "./pages/Instruction/Instruction.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    GRE HELPER
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<InstructionPage />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
