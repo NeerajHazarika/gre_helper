@@ -137,7 +137,7 @@ def update_attempt():
     }), 200
 
 
-@api_bp.route("/api/get_question_type_page/<test_id>/<question_no>")
+@api_bp.route("/api/get_question_type_page/<test_id>/<question_no>", methods=["GET"])
 def get_question_type_page(test_id, question_no):
     type_to_templates = {"5DMCQ":"MCQ/DMCQ/5DMCQ.html",
                          "6DMCQ":"MCQ/DMCQ/6DMCQ.html", 
@@ -181,9 +181,11 @@ def get_question_type_page(test_id, question_no):
 
     conn.close()
 
+    current_app.logger.info(jsonify(type_to_templates=type_to_templates[type]))
+
     return jsonify(type_to_templates=type_to_templates[type])
 
-@api_bp.route("/api/get_ques_img_src/test/<test_id>/question/<question_no>/")
+@api_bp.route("/api/get_ques_img_src/test/<test_id>/question/<question_no>/", methods=["GET"])
 def get_ques_img_src(test_id, question_no):
     conn = sqlite3.connect("../database.db")
     cursor = conn.cursor()
@@ -207,6 +209,8 @@ def get_ques_img_src(test_id, question_no):
     passage_chart_img_src = cursor.fetchone()[0]
 
     conn.close()
+
+    current_app.logger.info(jsonify(ques_img_src=ques_img_src, passage_chart_img_src=passage_chart_img_src))
 
     return jsonify(ques_img_src=ques_img_src, passage_chart_img_src=passage_chart_img_src)
 
