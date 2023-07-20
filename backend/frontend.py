@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, current_app, request
-import requests
+import requests, urllib.parse
 
 frontend_bp = Blueprint('frontend_bp', __name__)
 
@@ -33,7 +33,7 @@ def test(test_id, question_no=0):
     """
 
     # Make API call to get ques_img_src
-    response = requests.get(f'http://localhost:5000/api/get_ques_img_src/test/{test_id}/question/{question_no}/')
+    response = requests.get(f"{current_app.config.API_URL}/api/get_ques_img_src/test/{test_id}/question/{question_no}/")
     ques_img_src = response.json().get('ques_img_src')
 
     return render_template('testpage.html', ques_img_src=ques_img_src, test_id=test_id, question_no=question_no)
@@ -46,13 +46,14 @@ def test_attempt(test_id, attempt_id, question_no):
     """
 
     # Make API call to get template name
-    response = requests.get(f'http://localhost:5000/api/get_question_type_page/{test_id}/{question_no}')
-    question_type_html = response.json().get('type_to_templates')
+    question_type_html = request.args.get('question_type_html')
+    question_type_html = urllib.parse.unquote(question_type_html)
 
     # Make API call to get ques_img_src & passage_chart_img_src
-    response = requests.get(f'http://localhost:5000/api/get_ques_img_src/test/{test_id}/question/{question_no}/')
-    ques_img_src = response.json().get('ques_img_src')
-    passage_chart_img_src = response.json().get('passage_chart_img_src')
+    ques_img_src = request.args.get('ques_img_src')
+    passage_chart_img_src = request.args.get('passage_chart_img_src')
+
+    current_app.logger.info(f"question_type_html: {question_type_html}, ques_img_src: {ques_img_src}, passage_chart_img_src: {passage_chart_img_src}")
 
     return render_template(f"questions/{question_type_html}", ques_img_src=ques_img_src, passage_chart_img_src=passage_chart_img_src, test_id=test_id, attempt_id=attempt_id, question_no=question_no)
 
@@ -66,7 +67,7 @@ def perform_performacepage(attempt_id):
 def frontend_testing():
 
     # Make API call to get ques_img_src
-    response = requests.get('http://localhost:5000/api/get_ques_img_src/test/1/question/1/')
+    response = requests.get(f"{current_app.config.API_URL}/api/get_ques_img_src/test/1/question/1/")
     ques_img_src = response.json().get('ques_img_src')
 
     return render_template('testpage.html', ques_img_src=ques_img_src, question_no=1)
