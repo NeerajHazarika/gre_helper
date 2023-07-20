@@ -28,7 +28,29 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function redirectToTest(test_id, attempt_id, question_no) {
-            window.location.href = "/test/"+test_id+"/attempt/"+attempt_id+"/question/"+question_no;
+            var question_type_html, ques_img_src, passage_chart_img_src;
+
+            $.when(
+                $.ajax({
+                    type: "GET",
+                    url: "/api/get_question_type_page/" + test_id + "/" + question_no,
+                    contentType: "application/json"
+                }).done(function(response) {
+                    question_type_html = response.type_to_templates;
+                }),
+                $.ajax({
+                    type: "GET",
+                    url: "/api/get_ques_img_src/test/" + test_id + "/question/" + question_no,
+                    contentType: "application/json"
+                }).done(function(response) {
+                    ques_img_src = response.ques_img_src;
+                    passage_chart_img_src = response.passage_chart_img_src;
+                })
+            ).then(function() {
+                window.location.href = "/test/" + test_id + "/attempt/" + attempt_id + "/question/" + question_no + "?ques_img_src=" + ques_img_src + "&passage_chart_img_src=" + passage_chart_img_src + "&question_type_html=" + question_type_html; // REACT: question_type_html will not be needed instead we will do dynamic component rendering based on question_type only, so new api needs to be created which returns question_type based on question_no
+            }).fail(function() {
+                console.log("Error occurred during AJAX requests");
+            });
         }
     </script>
 </body>
