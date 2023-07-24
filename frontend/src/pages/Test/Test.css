@@ -1,0 +1,495 @@
+.instruction-page {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .instruction-page .div {
+    background-color: #ffffff;
+    border: 1px none;
+    height: 1282px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .instruction-page .overlap {
+    background-color: #1e1e1e;
+    height: 490px;
+    left: 0;
+    position: absolute;
+    top: 792px;
+    width: 100%;
+  }
+  
+  .instruction-page .question-navigation {
+    height: 229px;
+    left: 333px;
+    position: relative;
+    top: 134px;
+    width: 1063px;
+  }
+  
+  .instruction-page .element-button {
+    height: 72px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 75px;
+  }
+  
+  .instruction-page .overlap-group {
+    background-color: #ebebeb;
+    border-radius: 10px;
+    height: 72px;
+    position: relative;
+    width: 73px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .instruction-page .text-wrapper {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .overlap-wrapper {
+    height: 72px;
+    left: 108px;
+    position: absolute;
+    top: 0;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-2 {
+    color: #0f0f0f;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .overlap-group-wrapper {
+    height: 72px;
+    left: 216px;
+    position: absolute;
+    top: 0;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-3 {
+    color: #0f0f0f;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .div-wrapper {
+    height: 72px;
+    left: 324px;
+    position: absolute;
+    top: 0;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-4 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-2 {
+    height: 72px;
+    left: 432px;
+    position: absolute;
+    top: 0;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-5 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-3 {
+    height: 72px;
+    left: 540px;
+    position: absolute;
+    top: 0;
+    width: 74px;
+  }
+  
+  .instruction-page .text-wrapper-6 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-4 {
+    height: 72px;
+    left: 648px;
+    position: absolute;
+    top: 0;
+    width: 74px;
+  }
+  
+  .instruction-page .element-button-5 {
+    height: 72px;
+    left: 756px;
+    position: absolute;
+    top: 0;
+    width: 74px;
+  }
+  
+  .instruction-page .element-button-6 {
+    height: 72px;
+    left: 864px;
+    position: absolute;
+    top: 0;
+    width: 74px;
+  }
+  
+  .instruction-page .element-button-7 {
+    height: 72px;
+    left: 971px;
+    position: absolute;
+    top: 0;
+    width: 94px;
+  }
+  
+  .instruction-page .overlap-3 {
+    height: 72px;
+    position: relative;
+    width: 92px;
+  }
+  
+  .instruction-page .text-wrapper-7 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-8 {
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 159px;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-8 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-9 {
+    height: 70px;
+    left: 108px;
+    position: absolute;
+    top: 159px;
+    width: 81px;
+  }
+  
+  .instruction-page .element-bg-2 {
+    background-color: #ebebeb;
+    border-radius: 10px;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 73px;
+  }
+  
+  .instruction-page .text-wrapper-9 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-10 {
+    height: 70px;
+    left: 216px;
+    position: absolute;
+    top: 159px;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-10 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-11 {
+    height: 70px;
+    left: 325px;
+    position: absolute;
+    top: 159px;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-11 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-12 {
+    height: 70px;
+    left: 433px;
+    position: absolute;
+    top: 159px;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-12 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-13 {
+    height: 70px;
+    left: 541px;
+    position: absolute;
+    top: 159px;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-13 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-14 {
+    height: 70px;
+    left: 649px;
+    position: absolute;
+    top: 159px;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-14 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-15 {
+    height: 70px;
+    left: 758px;
+    position: absolute;
+    top: 159px;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-15 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-16 {
+    height: 70px;
+    left: 866px;
+    position: absolute;
+    top: 159px;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-16 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .element-button-17 {
+    height: 70px;
+    left: 974px;
+    position: absolute;
+    top: 159px;
+    width: 75px;
+  }
+  
+  .instruction-page .text-wrapper-17 {
+    color: #0f0f0f;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: fit-content;
+  }
+  
+  .instruction-page .save-next-button {
+    height: 68px;
+    left: 443px;
+    position: absolute;
+    top: 592px;
+    width: 845px;
+  }
+  
+  .instruction-page .save-next-wrapper {
+    background-color: #191919;
+    border-radius: 20px;
+    height: 68px;
+    position: relative;
+    width: 843px;
+  }
+  
+  .instruction-page .save-next {
+    color: #f1f1f1;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    left: 363px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 22px;
+    white-space: nowrap;
+  }
+  
+  .instruction-page .blank-ii-input {
+    height: 68px;
+    left: 901px;
+    position: absolute;
+    top: 504px;
+    width: 387px;
+  }
+  
+  .instruction-page .overlap-6 {
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    height: 68px;
+    position: relative;
+    width: 385px;
+  }
+  
+  .instruction-page .text-wrapper-18 {
+    color: #727272;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 16px;
+    font-weight: 600;
+    left: 40px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 24px;
+    white-space: nowrap;
+  }
+  
+  .instruction-page .blank-i-input {
+    height: 68px;
+    left: 443px;
+    position: absolute;
+    top: 504px;
+    width: 387px;
+  }
+  
+  .instruction-page .text-wrapper-19 {
+    color: #818181;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 16px;
+    font-weight: 600;
+    left: 35px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 24px;
+    white-space: nowrap;
+  }
+  
+  .instruction-page .screenshot {
+    height: 370px;
+    left: 305px;
+    object-fit: cover;
+    position: absolute;
+    top: 83px;
+    width: auto;
+  }
+  
