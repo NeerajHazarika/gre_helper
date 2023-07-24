@@ -1,0 +1,286 @@
+.home-desktop {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .home-desktop .div {
+    background-color: #ffffff;
+    border: 1px none;
+    height: 2124px;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .home-desktop .text-wrapper {
+    color: #293241;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 17px;
+    font-weight: 400;
+    left: 176px;
+    letter-spacing: 0.34px;
+    line-height: 22.3px;
+    position: absolute;
+    text-align: center;
+    top: 2065px;
+    white-space: nowrap;
+  }
+  
+  .home-desktop .p {
+    color: #3a3a3ac9;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 775px;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 1742px;
+    width: 439px;
+  }
+  
+  .home-desktop .text-wrapper-2 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 777px;
+    letter-spacing: 1.26px;
+    line-height: 23.6px;
+    position: absolute;
+    text-align: center;
+    top: 1701px;
+    white-space: nowrap;
+  }
+  
+  .home-desktop .text-wrapper-3 {
+    color: #3a3a3ac9;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 179px;
+    letter-spacing: 0;
+    line-height: 23.6px;
+    position: absolute;
+    text-align: center;
+    top: 1741px;
+    white-space: nowrap;
+  }
+  
+  .home-desktop .text-wrapper-4 {
+    color: #3a3a3a;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 179px;
+    letter-spacing: 1.26px;
+    line-height: 23.6px;
+    position: absolute;
+    text-align: center;
+    top: 1700px;
+    white-space: nowrap;
+  }
+  
+  .home-desktop .text-wrapper-5 {
+    color: #3a3a3ac9;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 775px;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 1383px;
+    width: 439px;
+  }
+  
+  .home-desktop .text-wrapper-6 {
+    color: #3a3a3a;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 775px;
+    letter-spacing: 1.26px;
+    line-height: 23.6px;
+    position: absolute;
+    text-align: center;
+    top: 1340px;
+    white-space: nowrap;
+  }
+  
+  .home-desktop .text-wrapper-7 {
+    color: #3a3a3ac9;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 177px;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 1380px;
+    width: 439px;
+  }
+  
+  .home-desktop .text-wrapper-8 {
+    color: #3a3a3a;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 177px;
+    letter-spacing: 1.26px;
+    line-height: 23.6px;
+    position: absolute;
+    text-align: center;
+    top: 1340px;
+    white-space: nowrap;
+  }
+  
+  .home-desktop .text-wrapper-9 {
+    color: #293241;
+    font-family: "Merriweather Sans-ExtraBold", Helvetica;
+    font-size: 56px;
+    font-weight: 800;
+    left: 184px;
+    letter-spacing: 4.2px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 1197px;
+  }
+  
+  .home-desktop .text-wrapper-10 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 500px;
+    letter-spacing: 0;
+    line-height: 23.6px;
+    position: absolute;
+    text-align: center;
+    top: 989px;
+    width: 439px;
+  }
+  
+  .home-desktop .text-wrapper-11 {
+    color: #293241;
+    font-family: "Merriweather Sans-ExtraBold", Helvetica;
+    font-size: 56px;
+    font-weight: 800;
+    left: 588px;
+    letter-spacing: 4.2px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 922px;
+  }
+  
+  .home-desktop .start-test-button {
+    height: 98px;
+    left: 605px;
+    position: absolute;
+    top: 744px;
+    width: 240px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .home-desktop .start-test-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .home-desktop .overlap-group {
+    background-color: #293241;
+    border-radius: 10px;
+    height: 86px;
+    position: relative;
+    width: 238px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .home-desktop .text-wrapper-12 {
+    color: #ffffff;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 31px;
+    font-weight: 400;
+    letter-spacing: 1.86px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+  }
+  
+  .home-desktop .overlap {
+    height: 611px;
+    left: 195px;
+    position: absolute;
+    top: 50px;
+    width: 1050px;
+  }
+  
+  .home-desktop .text-wrapper-13 {
+    color: #000000;
+    font-family: "Merriweather Sans-Light", Helvetica;
+    font-size: 103px;
+    font-weight: 300;
+    left: 0;
+    letter-spacing: 133.9px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 482px;
+  }
+  
+  .home-desktop .h-1 {
+    color: #000000;
+    font-family: "Merriweather Sans-ExtraBold", Helvetica;
+    font-size: 415px;
+    font-weight: 800;
+    left: 46px;
+    letter-spacing: 49.8px;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 86px;
+  }
+  
+  .home-desktop .login-button {
+    height: 56px;
+    left: 807px;
+    position: absolute;
+    top: 0;
+    width: 142px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .home-desktop .login-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .home-desktop .div-wrapper {
+    background-color: #293241;
+    border-radius: 9px;
+    height: 56px;
+    position: relative;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .home-desktop .text-wrapper-14 {
+    color: #ffffff;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.77px;
+    line-height: normal;
+    position: absolute;
+    width: 105px;
+    text-align: center;
+  }
+  
