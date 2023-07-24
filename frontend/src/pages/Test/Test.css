@@ -487,9 +487,10 @@
   .instruction-page .screenshot {
     height: 370px;
     left: 305px;
-    object-fit: cover;
+    object-fit: contain;
     position: absolute;
     top: 83px;
     width: auto;
+    max-width: 100%;
   }
   
