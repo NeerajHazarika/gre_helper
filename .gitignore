@@ -3,4 +3,6 @@ backend/app.log
 frontend/node_modules
 backend/.env
 TODO.txt
-/backend/.gcloudignore
+backend/.gcloudignore
+frontend/.env
+backend/myenv
