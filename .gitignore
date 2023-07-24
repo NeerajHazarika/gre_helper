@@ -6,3 +6,5 @@ TODO.txt
 backend/.gcloudignore
 frontend/.env
 backend/myenv
+frontend/build
+frontend/.gcloudignore
