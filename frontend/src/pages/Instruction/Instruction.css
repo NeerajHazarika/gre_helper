@@ -33,6 +33,12 @@
     position: absolute;
     top: 3274px;
     width: 549px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .desktop .go-back-button:hover {
+    transform: scale(1.1);
   }
   
   .desktop .overlap {
@@ -42,6 +48,9 @@
     height: 122px;
     position: relative;
     width: 547px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .desktop .group {
@@ -53,18 +62,17 @@
   }
   
   .desktop .overlap-group {
-    height: 58px;
+    height: 61px;
     position: relative;
-    top: -3px;
-    width: 31px;
+    top: -6px;
+    width: 61px;
+    left: 209px;
   }
   
   .desktop .line {
-    height: 32px;
-    left: 0;
+    height: 61px;
     position: absolute;
-    top: 26px;
-    width: 31px;
+    width: 61px;
   }
   
   .desktop .img {
@@ -84,7 +92,7 @@
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 26px;
+    top: 31px;
   }
   
   .desktop .accept-continue {
@@ -93,6 +101,12 @@
     position: absolute;
     top: 3274px;
     width: 648px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .desktop .accept-continue:hover {
+    transform: scale(1.1);
   }
   
   .desktop .overlap-2 {
@@ -101,14 +115,17 @@
     height: 122px;
     position: relative;
     width: 646px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .desktop .overlap-group-2 {
-    height: 58px;
-    left: 588px;
+    height: 61px;
+    left: 553px;
     position: absolute;
-    top: 32px;
-    width: 31px;
+    top: 25px;
+    width: 61px;
   }
   
   .desktop .accept-continue-2 {
@@ -146,9 +163,11 @@
   .desktop .overlap-3 {
     height: 154px;
     left: 0;
-    position: absolute;
+    position: relative;
     top: 450px;
     width: 229px;
+    display: flex-start;
+    /* justify-content: start; */
   }
   
   .desktop .text-wrapper-4 {
@@ -168,7 +187,7 @@
     font-family: "Fascinate Inline-Regular", Helvetica;
     font-size: 96px;
     font-weight: 400;
-    left: 36px;
+    left: 50px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -209,7 +228,7 @@
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 401px;
+    top: 417px;
   }
   
   .desktop .text-wrapper-8 {
@@ -252,6 +271,9 @@
     height: 433px;
     position: relative;
     width: 449px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
   
   .desktop .text-wrapper-10 {
@@ -263,7 +285,6 @@
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 176px;
     width: 167px;
   }
   
@@ -308,7 +329,6 @@
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 195px;
     white-space: nowrap;
     width: 110px;
   }
